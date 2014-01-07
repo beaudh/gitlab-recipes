@@ -70,9 +70,10 @@ sudo DEBIAN_FRONTEND='noninteractive' apt-get install -y postfix-policyd-spf-pyt
 #==
 #== 2. RUBY
 #==
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz
-tar xfvz ruby-1.9.3-p327.tar.gz
-cd ruby-1.9.3-p327
+RUBY_VER="1.9.3-p448"
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-$RUBY_VER.tar.gz
+tar xfvz ruby-$RUBY_VER.tar.gz
+cd ruby-$RUBY_VER
 ./configure
 make
 sudo make install
@@ -193,4 +194,3 @@ sudo sed -i "s/YOUR_SERVER_FQDN/$domain_var/" /etc/nginx/sites-available/gitlab
 
 sudo service gitlab start
 sudo service nginx start
-
